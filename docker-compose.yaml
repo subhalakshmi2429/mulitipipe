@@ -1,0 +1,25 @@
+---
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD="redhat"
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - node_nw
+  pma:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: mysql 
+    networks:
+      - node_nw
+    ports:
+      - 80:80
+
+volumes:
+  database:
+
+networks:
+  node_nw:
+    
