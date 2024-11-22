@@ -25,6 +25,11 @@ services:
       MYSQL_ROOT_PASSWORD: "redhat"
       MYSQL_DATABASE: student_info
       MYSQL_HOST: mysql
+    ports:
+      - 3000:3000
+    
+    networks:
+      - node_nw
 
 
 volumes:
