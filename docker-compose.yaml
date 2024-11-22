@@ -4,6 +4,7 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD="redhat"
+      - MYSQL_DATABASE="student_info"
     volumes:
       - database:/var/lib/mysql
     networks:
@@ -16,6 +17,15 @@ services:
       - node_nw
     ports:
       - 80:80
+
+  node_app:
+    image: nodeapp:latest
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: "redhat"
+      MYSQL_DATABASE: student_info
+      MYSQL_HOST: mysql
+
 
 volumes:
   database:
