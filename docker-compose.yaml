@@ -16,7 +16,7 @@ services:
     networks:
       - node_nw
     ports:
-      - 3030:80
+      - 80:80
 
   node_app:
     image: nodeapp:latest
